@@ -28,7 +28,7 @@ class Product(models.Model):
         if self.ProductName == "pdomain":
             self.secure_domain()
 
-    def secure_domain():
+    def secure_domain(self):
         return
 
     def validate_domain(self):
