@@ -1,0 +1,38 @@
+{% extends "base_generic.html" %}
+
+{% block title %}{{ section.title }}{% endblock %}
+
+{% block content %}
+<h1>
+    Email
+    <a href="/" class="float-right" style="margin:.25em">
+        <button type="button" class="btn btn-primary">Back to list</button>
+    </a>&nbsp;
+</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>CustomerId</th>
+            <th>Product</th>
+            <th>Domain</th>
+            <th>Email date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if products %}
+            {% for p in products %}
+                <tr>
+                    <td>{{ p.CustomerId }}</td>
+                    <td>{{ p.ProductName }}</td>
+                    <td>{{ p.Domain }}</td>
+                    <td>{{ p.StartDate }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="5">No data</td>
+            </tr>
+        {% endif %}
+    <tbody>
+</table>
+{% endblock %}

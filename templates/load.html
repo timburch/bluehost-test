@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block title %}{{ section.title }}{% endblock %}
+
+{% block content %}
+<h1>Load Products</h1>
+<form action="/load" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn btn-primary" type="submit">Submit</button>
+    <a href="/">
+        <button type="button" class="btn btn-danger" type="submit">Back to list</button>
+    </a>
+</form>
+{% endblock %}

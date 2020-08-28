@@ -1,0 +1,46 @@
+{% extends "base_generic.html" %}
+
+{% block title %}{{ section.title }}{% endblock %}
+
+{% block content %}
+<h1>
+    Acme Customer Products
+    <a href="/email" class="float-right" style="margin:.25em">
+        <button type="button" class="btn btn-primary">Email</button>
+    </a>&nbsp;
+    <a href="/load" class="float-right" style="margin:.25em">
+        <button type="button" class="btn btn-primary">Load</button>
+    </a>
+    <a href="/add" class="float-right" style="margin:.25em">
+        <button type="button" class="btn btn-primary">Add</button>
+    </a>
+</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>CustomerId</th>
+            <th>Product</th>
+            <th>Domain</th>
+            <th>Start date</th>
+            <th>Duration (months)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if products %}
+            {% for p in products %}
+                <tr>
+                    <td>{{ p.CustomerId }}</td>
+                    <td>{{ p.ProductName }}</td>
+                    <td>{{ p.Domain }}</td>
+                    <td>{{ p.StartDate }}</td>
+                    <td>{{ p.DurationMonths }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan="5">No data</td>
+            </tr>
+        {% endif %}
+    <tbody>
+</table>
+{% endblock %}
